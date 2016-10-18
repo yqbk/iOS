@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    var index = 0
+    let plistCatPath =
+    NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
+    
+    var albums: NSArray?
+    
 
 
     @IBOutlet weak var RatingNr: UILabel!
@@ -24,19 +31,28 @@ class ViewController: UIViewController {
         
     }
     
+    func refreshViewOnChange()
+    {
+        artist.text = albums![index].valueForKey("artist") as? String
+        genre.text = albums![index].valueForKey("genre") as? String
+        year.text = albums![index].valueForKey("year") as? String
+
+    }
+    
     override func viewDidLoad() {
         
-        let plistCatPath =
-        NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
         
-        var albums: NSArray?
-        
-        albums = NSArray(contentsOfFile:plistCatPath!);
         
         super.viewDidLoad()
         self.steper.maximumValue = 3;
         self.steper.minimumValue = 1;
         self.RatingNr.text = String(self.steper.value);
+        
+        albums = NSMutableArray(contentsOfFile:plistCatPath!);
+        
+        
+
+        refreshViewOnChange()
         
         
 
