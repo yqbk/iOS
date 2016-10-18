@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var RatingNr: UILabel!
     @IBOutlet weak var steper: UIStepper!
     @IBOutlet weak var artist: UITextField!
-    @IBOutlet weak var title: UITextField!
     @IBOutlet weak var genre: UITextField!
     @IBOutlet weak var year: UITextField!
     
