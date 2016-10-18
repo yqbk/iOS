@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     
     var index = 0
+    var maxIndex = 0
     let plistCatPath =
     NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
     
@@ -21,9 +22,29 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var RatingNr: UILabel!
     @IBOutlet weak var steper: UIStepper!
+    @IBOutlet weak var albumTitle: UITextField!
     @IBOutlet weak var artist: UITextField!
     @IBOutlet weak var genre: UITextField!
     @IBOutlet weak var year: UITextField!
+    
+    @IBAction func nextRecord(sender: UIButton) {
+        
+        if(index<=(maxIndex-1))
+        {
+            index++
+            refreshViewOnChange()
+        }
+        
+    }
+    
+
+    @IBAction func prevRecord(sender: UIButton) {
+        if(index>0)
+        {
+            index--
+            refreshViewOnChange()
+        }
+    }
     
     @IBAction func ChangeRating(sender: UIStepper) {
         let value = sender.value;
@@ -35,7 +56,8 @@ class ViewController: UIViewController {
     {
         artist.text = albums![index].valueForKey("artist") as? String
         genre.text = albums![index].valueForKey("genre") as? String
-        year.text = albums![index].valueForKey("year") as? String
+        albumTitle.text = albums![index].valueForKey("title") as? String
+        year.text = albums![index].valueForKey("date")?.stringValue
 
     }
     
@@ -49,6 +71,8 @@ class ViewController: UIViewController {
         self.RatingNr.text = String(self.steper.value);
         
         albums = NSMutableArray(contentsOfFile:plistCatPath!);
+        
+        maxIndex = (albums?.count)!
         
         
 

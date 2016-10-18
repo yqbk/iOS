@@ -80,6 +80,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPJ-GK-IPf">
                                 <rect key="frame" x="20" y="525" width="31" height="30"/>
                                 <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="prevRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n5f-3a-6S4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrn-fZ-1TR">
                                 <rect key="frame" x="283" y="474" width="34" height="30"/>
@@ -92,6 +95,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePQ-pR-kQV">
                                 <rect key="frame" x="553" y="525" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1WT-qM-TQq"/>
+                                </connections>
                             </button>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sdc-hf-uPh">
                                 <rect key="frame" x="176" y="349" width="94" height="29"/>
@@ -130,10 +136,11 @@
                     </view>
                     <connections>
                         <outlet property="RatingNr" destination="UkS-nF-Fcp" id="wKk-SE-0Jy"/>
+                        <outlet property="albumTitle" destination="j94-g7-1Dn" id="zOd-B4-SoE"/>
                         <outlet property="artist" destination="9D7-8z-6H0" id="4si-uz-bkB"/>
                         <outlet property="genre" destination="WkP-Vj-BeU" id="7wb-0I-cFM"/>
                         <outlet property="steper" destination="sdc-hf-uPh" id="CJd-5E-H7A"/>
-                        <outlet property="title" destination="j94-g7-1Dn" id="Rei-J5-DyD"/>
+                        <outlet property="title" destination="j94-g7-1Dn" id="Q0Y-2I-b5I"/>
                         <outlet property="year" destination="uOW-V0-DxW" id="JEO-7J-37b"/>
                     </connections>
                 </viewController>
