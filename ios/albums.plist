@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>artist</key>
+            <string>Elton John</string>
+            <key>title</key>
+            <string>The Diving Board</string>
+            <key>date</key>
+            <integer>2013</integer>
+            <key>genre</key>
+            <string>rock</string>
+            <key>rating</key>
+            <integer>5</integer>
+        </dict>
+        <dict>
+            <key>artist</key>
+            <string>Muse</string>
+            <key>title</key>
+            <string>Black Holes and Revelations</string>
+            <key>date</key>
+            <integer>2006</integer>
+            <key>genre</key>
+            <string>rock</string>
+            <key>rating</key>
+            <integer>5</integer>
+        </dict>
+        <dict>
+            <key>artist</key>
+            <string>Franz Ferdinand</string>
+            <key>title</key>
+            <string>Right Thoughts, Right Words, Right Action</string>
+            <key>date</key>
+            <integer>2013</integer>
+            <key>genre</key>
+            <string>rock</string>
+            <key>rating</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>artist</key>
+            <string>Moby</string>
+            <key>title</key>
+            <string>Innocents</string>
+            <key>date</key>
+            <integer>2013</integer>
+            <key>genre</key>
+            <string>electronica</string>
+            <key>rating</key>
+            <integer>0</integer>
+        </dict>
+        <dict>
+            <key>artist</key>
+            <string>KLF</string>
+            <key>title</key>
+            <string>Chill Out</string>
+            <key>date</key>
+            <integer>1990</integer>
+            <key>genre</key>
+            <string>ambient</string>
+            <key>rating</key>
+            <integer>5</integer>
+        </dict>
+        <dict>
+            <key>artist</key>
+            <string>Justin Bieber</string>
+            <key>title</key>
+            <string>Believe</string>
+            <key>date</key>
+            <integer>2015</integer>
+            <key>genre</key>
+            <string>pop</string>
+            <key>rating</key>
+            <integer>1</integer>
+        </dict>
+    </array>
+</plist>
