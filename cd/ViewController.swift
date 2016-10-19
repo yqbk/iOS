@@ -26,10 +26,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var artist: UITextField!
     @IBOutlet weak var genre: UITextField!
     @IBOutlet weak var year: UITextField!
+    @IBOutlet weak var state: UILabel!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
     
     @IBAction func nextRecord(sender: UIButton) {
         
-        if(index<=(maxIndex-1))
+        if(index<(maxIndex-1))
         {
             index++
             refreshViewOnChange()
@@ -44,6 +48,7 @@ class ViewController: UIViewController {
             index--
             refreshViewOnChange()
         }
+
     }
     
     @IBAction func ChangeRating(sender: UIStepper) {
@@ -58,6 +63,23 @@ class ViewController: UIViewController {
         genre.text = albums![index].valueForKey("genre") as? String
         albumTitle.text = albums![index].valueForKey("title") as? String
         year.text = albums![index].valueForKey("date")?.stringValue
+        
+        state.text = "Track number \(index+1)"
+        
+        if(index+1==(albums?.count)!)
+        {
+            nextButton.enabled = false;
+        }
+        else if(index==0)
+        {
+            prevButton.enabled = false;
+        }
+        else
+        {
+            nextButton.enabled = true;
+            prevButton.enabled = true;
+        }
+        
 
     }
     
@@ -66,6 +88,9 @@ class ViewController: UIViewController {
         
         
         super.viewDidLoad()
+        
+        
+        
         self.steper.maximumValue = 3;
         self.steper.minimumValue = 1;
         self.RatingNr.text = String(self.steper.value);
