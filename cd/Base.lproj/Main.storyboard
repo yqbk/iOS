@@ -50,6 +50,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6H-GH-9ft">
                                         <rect key="frame" x="0.0" y="100" width="45" height="30"/>
                                         <state key="normal" title="New"/>
+                                        <connections>
+                                            <action selector="newRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhZ-zQ-KTb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -170,9 +173,12 @@
                         <outlet property="RatingNr" destination="UkS-nF-Fcp" id="wKk-SE-0Jy"/>
                         <outlet property="albumTitle" destination="j94-g7-1Dn" id="zOd-B4-SoE"/>
                         <outlet property="artist" destination="9D7-8z-6H0" id="4si-uz-bkB"/>
+                        <outlet property="deleteButton" destination="O5Q-Mj-mcz" id="SqC-AU-zQT"/>
                         <outlet property="genre" destination="WkP-Vj-BeU" id="7wb-0I-cFM"/>
+                        <outlet property="newButton" destination="w6H-GH-9ft" id="Pzq-6U-TqL"/>
                         <outlet property="nextButton" destination="ePQ-pR-kQV" id="el2-Mm-E1x"/>
                         <outlet property="prevButton" destination="zPJ-GK-IPf" id="tkc-LD-Za6"/>
+                        <outlet property="saveButton" destination="jrn-fZ-1TR" id="7VK-Qf-IB9"/>
                         <outlet property="state" destination="MuA-Xk-Z3s" id="hE6-rY-Rfw"/>
                         <outlet property="steper" destination="sdc-hf-uPh" id="CJd-5E-H7A"/>
                         <outlet property="title" destination="j94-g7-1Dn" id="Q0Y-2I-b5I"/>

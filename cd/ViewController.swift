@@ -29,6 +29,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var state: UILabel!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     
     @IBAction func nextRecord(sender: UIButton) {
@@ -37,6 +40,11 @@ class ViewController: UIViewController {
         {
             index++
             refreshViewOnChange()
+        }
+        else
+        {
+            index++
+            newRecord(newButton);
         }
         
     }
@@ -49,6 +57,13 @@ class ViewController: UIViewController {
             refreshViewOnChange()
         }
 
+    }
+    
+    @IBAction func newRecord(sender: UIButton) {
+        
+        clearFields();
+        
+        
     }
     
     @IBAction func ChangeRating(sender: UIStepper) {
@@ -66,7 +81,7 @@ class ViewController: UIViewController {
         
         state.text = "Track number \(index+1)"
         
-        if(index+1==(albums?.count)!)
+        if(index==(albums?.count)!)
         {
             nextButton.enabled = false;
         }
@@ -111,6 +126,15 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func clearFields()
+    {
+        artist.text = "";
+        albumTitle.text = "";
+        year.text = "";
+        genre.text = "";
+        RatingNr.text = "0";
     }
 
 
