@@ -58,22 +58,27 @@ class ViewController: UIViewController {
     @IBAction func newRecord(sender: UIButton) {
         
         clearFields();
-        
-        
-        
+        nextButton.enabled = false;
+        prevButton.enabled = false;
+        deleteButton.enabled = false;
+        newButton.enabled = false;
+        saveButton.enabled = true;
         
     }
     
     @IBAction func saveRecord(sender: UIButton) {
     
         let newDictionary = NSDictionary(dictionary:
-            ["artist": "The Beatles",
+            ["artist": artist.text,
             "title": "Abbey Road",
             "year": 1969,
             "genre": "rock",
             "rating": 5])
         albums.addObject(newDictionary)
         albums.writeToFile(albumsDocPath, atomically: true)
+        
+        index = albums.count - 1;
+        refreshViewOnChange()
         
     }
     
