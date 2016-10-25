@@ -48,7 +48,7 @@
 		ACE923B01DAE6D64000125BC /* cdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE923B41DAE6D64000125BC /* cdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cdUITests.swift; sourceTree = "<group>"; };
 		ACE923B61DAE6D64000125BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACE923C21DAE7D1F000125BC /* albums.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = albums.plist; sourceTree = "<group>"; };
+		ACE923C21DAE7D1F000125BC /* albums.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = albums.plist; path = cd/albums.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,7 @@
 		ACE923881DAE6D64000125BC = {
 			isa = PBXGroup;
 			children = (
+				ACE923C21DAE7D1F000125BC /* albums.plist */,
 				ACE923931DAE6D64000125BC /* cd */,
 				ACE923A81DAE6D64000125BC /* cdTests */,
 				ACE923B31DAE6D64000125BC /* cdUITests */,
@@ -105,7 +106,6 @@
 				ACE9239B1DAE6D64000125BC /* Assets.xcassets */,
 				ACE9239D1DAE6D64000125BC /* LaunchScreen.storyboard */,
 				ACE923A01DAE6D64000125BC /* Info.plist */,
-				ACE923C21DAE7D1F000125BC /* albums.plist */,
 			);
 			path = cd;
 			sourceTree = "<group>";
@@ -487,6 +487,7 @@
 				ACE923BB1DAE6D64000125BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACE923BC1DAE6D64000125BC /* Build configuration list for PBXNativeTarget "cdTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +496,7 @@
 				ACE923BE1DAE6D64000125BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ACE923BF1DAE6D64000125BC /* Build configuration list for PBXNativeTarget "cdUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +505,7 @@
 				ACE923C11DAE6D64000125BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

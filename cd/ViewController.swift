@@ -9,16 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
     var index = 0
-    var maxIndex = 0
-    let plistCatPath =
-    NSBundle.mainBundle().pathForResource("albums", ofType: "plist");
     
-    var albums: NSArray?
-    
-
+    var albums: NSMutableArray = []
+    var albumsDocPath: String = ""
+    let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
+    let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
+//    let fileManager = NSFileManager.defaultManager()
+//    
+//    if !fileManager.fileExistsAtPath(albumsDocPath)
+//    {
+//    
+//    }
 
     @IBOutlet weak var RatingNr: UILabel!
     @IBOutlet weak var steper: UIStepper!
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
     
     @IBAction func nextRecord(sender: UIButton) {
         
-        if(index<(maxIndex-1))
+        if(index<((albums.count) - 1))
         {
             index++
             refreshViewOnChange()
@@ -64,24 +67,55 @@ class ViewController: UIViewController {
         clearFields();
         
         
+        
+        
     }
     
+    @IBAction func saveRecord(sender: UIButton) {
+    
+        let newDictionary = NSDictionary(dictionary:
+            ["artist": "The Beatles",
+            "title": "Abbey Road",
+            "year": 1969,
+            "genre": "rock",
+            "rating": 5])
+        albums.addObject(newDictionary)
+        albums.writeToFile(albumsDocPath, atomically: true)
+        
+    }
+    
+    @IBAction func DeleteRecord(sender: UIButton) {
+    
+//        albumsdelete(albums![index]);
+        
+        
+        index = 0;
+        refreshViewOnChange()
+        
+    }
+    
+    
     @IBAction func ChangeRating(sender: UIStepper) {
-        let value = sender.value;
-        RatingNr.text = String(value);
+        let val = sender.value;
+        RatingNr.text = String(val);
         
     }
     
     func refreshViewOnChange()
     {
-        artist.text = albums![index].valueForKey("artist") as? String
-        genre.text = albums![index].valueForKey("genre") as? String
-        albumTitle.text = albums![index].valueForKey("title") as? String
-        year.text = albums![index].valueForKey("date")?.stringValue
         
-        state.text = "Track number \(index+1)"
+//  Get values from plist
+//        artist.text = albums.[index].valueForKey("artist") as? String
+//        genre.text = albums.[index].valueForKey("genre") as? String
+//        albumTitle.text = albums[index].valueForKey("title") as? String
+//        year.text = albums[index].valueForKey("date")?.stringValue
+//        RatingNr.text = albums[index].valueForKey("rating")?.stringValue
         
-        if(index==(albums?.count)!)
+//  show track number
+        state.text = "Track number \(index+1) / \(albums.count)!) "
+        
+//  Disable buttons if neccessary
+        if(index==(albums.count))
         {
             nextButton.enabled = false;
         }
@@ -100,26 +134,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
-        
         super.viewDidLoad()
         
-        
-        
-        self.steper.maximumValue = 3;
+        self.steper.maximumValue = 5;
         self.steper.minimumValue = 1;
-        self.RatingNr.text = String(self.steper.value);
-        
-        albums = NSMutableArray(contentsOfFile:plistCatPath!);
-        
-        maxIndex = (albums?.count)!
-        
-        
 
         refreshViewOnChange()
-        
-        
-
+            
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -135,6 +156,7 @@ class ViewController: UIViewController {
         year.text = "";
         genre.text = "";
         RatingNr.text = "0";
+        state.text = "New record";
     }
 
 
