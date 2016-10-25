@@ -67,14 +67,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveRecord(sender: UIButton) {
+        var a = artist.text!
+        let newDict = NSDictionary(dictionary:
+            ["artist": artist.text!,
+             "title": "b",
+             "year": 12,
+             "genre": genre.text,
+             "year": 2])
+        
+        albums.addObject(newDict)
+            
+
     
-        let newDictionary = NSDictionary(dictionary:
-            ["artist": artist.text,
-            "title": "Abbey Road",
-            "year": 1969,
-            "genre": "rock",
-            "rating": 5])
-        albums.addObject(newDictionary)
         albums.writeToFile(albumsDocPath, atomically: true)
         
         index = albums.count - 1;
@@ -108,6 +112,10 @@ class ViewController: UIViewController {
         albumTitle.text = albums[index].valueForKey("title") as? String
         year.text = albums[index].valueForKey("date")?.stringValue
         RatingNr.text = albums[index].valueForKey("rating")?.stringValue
+        
+        deleteButton.enabled = true;
+        newButton.enabled = true;
+        saveButton.enabled = true;
         
 //  show track number
         state.text = "Track number \(index+1) / \(albums.count) "
