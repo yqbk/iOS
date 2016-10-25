@@ -9,19 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var index = 0
     
+    var index = 0
     var albums: NSMutableArray = []
     var albumsDocPath: String = ""
-    let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
-    let documentPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-    albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
-//    let fileManager = NSFileManager.defaultManager()
-//    
-//    if !fileManager.fileExistsAtPath(albumsDocPath)
-//    {
-//    
-//    }
+    
+
 
     @IBOutlet weak var RatingNr: UILabel!
     @IBOutlet weak var steper: UIStepper!
@@ -105,14 +98,14 @@ class ViewController: UIViewController {
     {
         
 //  Get values from plist
-//        artist.text = albums.[index].valueForKey("artist") as? String
-//        genre.text = albums.[index].valueForKey("genre") as? String
-//        albumTitle.text = albums[index].valueForKey("title") as? String
-//        year.text = albums[index].valueForKey("date")?.stringValue
-//        RatingNr.text = albums[index].valueForKey("rating")?.stringValue
+        artist.text = albums[index].valueForKey("artist") as? String
+        genre.text = albums[index].valueForKey("genre") as? String
+        albumTitle.text = albums[index].valueForKey("title") as? String
+        year.text = albums[index].valueForKey("date")?.stringValue
+        RatingNr.text = albums[index].valueForKey("rating")?.stringValue
         
 //  show track number
-        state.text = "Track number \(index+1) / \(albums.count)!) "
+        state.text = "Track number \(index+1) / \(albums.count) "
         
 //  Disable buttons if neccessary
         if(index==(albums.count))
@@ -135,6 +128,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+
+        let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
+        let fileManager = NSFileManager.defaultManager()
+        
+        if !fileManager.fileExistsAtPath(albumsDocPath)
+        {
+//            bez wykrzyknika???
+            try? fileManager.copyItemAtPath(plistPath, toPath: albumsDocPath)
+        }
+        
+        albums = NSMutableArray(contentsOfFile: albumsDocPath)!
         
         self.steper.maximumValue = 5;
         self.steper.minimumValue = 1;
