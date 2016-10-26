@@ -14,6 +14,21 @@ class ViewController: UIViewController {
     var albums: NSMutableArray = []
     var albumsDocPath: String = ""
     
+    
+    
+    @IBAction func changeArtist(sender: UITextField) {
+        saveButton.enabled = true;
+    }
+    @IBAction func change2(sender: UITextField) {
+        saveButton.enabled = true;
+    }
+    @IBAction func change3(sender: UITextField) {
+        saveButton.enabled = true;
+    }
+    @IBAction func edit4(sender: UITextField) {
+        saveButton.enabled = true;
+    }
+
 
 
     @IBOutlet weak var RatingNr: UILabel!
@@ -102,6 +117,7 @@ class ViewController: UIViewController {
     
     @IBAction func ChangeRating(sender: UIStepper) {
         let val = sender.value;
+        saveButton.enabled = true;
         RatingNr.text = String(val);
         
     }
@@ -120,7 +136,7 @@ class ViewController: UIViewController {
         
         deleteButton.enabled = true;
         newButton.enabled = true;
-        saveButton.enabled = true;
+        saveButton.enabled = false;
         
 //  show track number
         state.text = "Track number \(index+1) / \(albums.count) "

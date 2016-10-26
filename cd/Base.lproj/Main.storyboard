@@ -78,6 +78,10 @@
                                                 <rect key="frame" x="52" y="0.0" width="488" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="artistChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Qb7-5l-MIf"/>
+                                                    <action selector="changeArtist:" destination="BYZ-38-t0r" eventType="editingChanged" id="oww-8T-U8g"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -94,6 +98,10 @@
                                                 <rect key="frame" x="44" y="0.0" width="496" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="change2:" destination="BYZ-38-t0r" eventType="editingChanged" id="OBP-FY-o05"/>
+                                                    <action selector="titleChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="rw2-bA-Iqn"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -110,6 +118,10 @@
                                                 <rect key="frame" x="44" y="0.0" width="496" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="change3:" destination="BYZ-38-t0r" eventType="editingChanged" id="LbE-Oc-Dgh"/>
+                                                    <action selector="yearChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="PjU-J8-arN"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -126,6 +138,10 @@
                                                 <rect key="frame" x="57" y="0.0" width="483" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="edit4:" destination="BYZ-38-t0r" eventType="editingChanged" id="Lcg-c7-Cyi"/>
+                                                    <action selector="genreChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="eU9-lZ-cOZ"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
