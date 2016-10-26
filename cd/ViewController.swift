@@ -91,10 +91,11 @@ class ViewController: UIViewController {
                 "genre": genre.text!,
                 "rating": Double(RatingNr.text!)!])
         
+        print(state.text);
+        
         if (state.text == "New record")
         {
             albums.addObject(newDictionary)
-            albums.writeToFile(albumsDocPath, atomically: true)
             index = albums.count - 1;
         }
         else
@@ -102,6 +103,7 @@ class ViewController: UIViewController {
             albums[index] = newDictionary;
         }
         
+        albums.writeToFile(albumsDocPath, atomically: true)
         refreshViewOnChange()
         
     }
@@ -168,6 +170,7 @@ class ViewController: UIViewController {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
         let fileManager = NSFileManager.defaultManager()
+        
         
         if !fileManager.fileExistsAtPath(albumsDocPath)
         {
