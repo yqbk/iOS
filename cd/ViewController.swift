@@ -20,8 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var steper: UIStepper!
     @IBOutlet weak var albumTitle: UITextField!
     @IBOutlet weak var artist: UITextField!
-    @IBOutlet weak var genre: UITextField!
+    
     @IBOutlet weak var year: UITextField!
+    @IBOutlet weak var genre: UITextField!    
     @IBOutlet weak var state: UILabel!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -67,35 +68,37 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveRecord(sender: UIButton) {
-        var a = artist.text!
-        let newDict = NSDictionary(dictionary:
+        
+        let newDictionary = NSDictionary(dictionary:
             ["artist": artist.text!,
-             "title": "b",
-             "year": 12,
-             "genre": genre.text,
-             "year": 2])
+                "title": albumTitle.text!,
+                "date": Int(year.text!)!,
+                "genre": genre.text!,
+                "rating": Double(RatingNr.text!)!])
         
-        albums.addObject(newDict)
-            
-
-    
-        albums.writeToFile(albumsDocPath, atomically: true)
+        if (state.text == "New record")
+        {
+            albums.addObject(newDictionary)
+            albums.writeToFile(albumsDocPath, atomically: true)
+            index = albums.count - 1;
+        }
+        else
+        {
+            albums[index] = newDictionary;
+        }
         
-        index = albums.count - 1;
         refreshViewOnChange()
         
     }
     
     @IBAction func DeleteRecord(sender: UIButton) {
-    
-//        albumsdelete(albums![index]);
         
+        albums.removeObjectAtIndex(index);
         
         index = 0;
         refreshViewOnChange()
         
     }
-    
     
     @IBAction func ChangeRating(sender: UIStepper) {
         let val = sender.value;
@@ -112,6 +115,8 @@ class ViewController: UIViewController {
         albumTitle.text = albums[index].valueForKey("title") as? String
         year.text = albums[index].valueForKey("date")?.stringValue
         RatingNr.text = albums[index].valueForKey("rating")?.stringValue
+        
+        steper.value = (albums[index].valueForKey("rating")?.doubleValue)!
         
         deleteButton.enabled = true;
         newButton.enabled = true;
@@ -158,6 +163,8 @@ class ViewController: UIViewController {
         
         self.steper.maximumValue = 5;
         self.steper.minimumValue = 1;
+        
+        
 
         refreshViewOnChange()
             

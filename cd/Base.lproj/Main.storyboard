@@ -180,7 +180,7 @@
                         <outlet property="albumTitle" destination="j94-g7-1Dn" id="zOd-B4-SoE"/>
                         <outlet property="artist" destination="9D7-8z-6H0" id="4si-uz-bkB"/>
                         <outlet property="deleteButton" destination="O5Q-Mj-mcz" id="SqC-AU-zQT"/>
-                        <outlet property="genre" destination="WkP-Vj-BeU" id="7wb-0I-cFM"/>
+                        <outlet property="genre" destination="uOW-V0-DxW" id="XLs-d5-gSF"/>
                         <outlet property="newButton" destination="w6H-GH-9ft" id="Pzq-6U-TqL"/>
                         <outlet property="nextButton" destination="ePQ-pR-kQV" id="el2-Mm-E1x"/>
                         <outlet property="prevButton" destination="zPJ-GK-IPf" id="tkc-LD-Za6"/>
@@ -188,7 +188,7 @@
                         <outlet property="state" destination="MuA-Xk-Z3s" id="hE6-rY-Rfw"/>
                         <outlet property="steper" destination="sdc-hf-uPh" id="CJd-5E-H7A"/>
                         <outlet property="title" destination="j94-g7-1Dn" id="Q0Y-2I-b5I"/>
-                        <outlet property="year" destination="uOW-V0-DxW" id="JEO-7J-37b"/>
+                        <outlet property="year" destination="WkP-Vj-BeU" id="R0K-lc-q0s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
