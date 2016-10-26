@@ -74,8 +74,11 @@ class ViewController: UIViewController {
     @IBAction func newRecord(sender: UIButton) {
         
         clearFields();
+        
+        index = albums.count;
+        
         nextButton.enabled = false;
-        prevButton.enabled = false;
+        prevButton.enabled = true;
         deleteButton.enabled = false;
         newButton.enabled = false;
         saveButton.enabled = true;
