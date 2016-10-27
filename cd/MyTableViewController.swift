@@ -9,9 +9,28 @@
 import UIKit
 
 class MyTableViewController: UITableViewController {
+    
+    
+    var index = 0
+    var albums: NSMutableArray = []
+    var albumsDocPath: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
+        let fileManager = NSFileManager.defaultManager()
+        
+        
+        if !fileManager.fileExistsAtPath(albumsDocPath)
+        {
+            //            bez wykrzyknika???
+            try? fileManager.copyItemAtPath(plistPath, toPath: albumsDocPath)
+        }
+        
+        albums = NSMutableArray(contentsOfFile: albumsDocPath)!
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -42,8 +61,8 @@ class MyTableViewController: UITableViewController {
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("AlbumCell", forIndexPath: indexPath)
         
-        cell.textLabel!.text = "test"
-
+        cell.textLabel!.text = albums[indexPath.row]["artist"] as? String
+        cell.detailTextLabel!.text = albums[indexPath.row]["title"] as? String
         
 
         return cell

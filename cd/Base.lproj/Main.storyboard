@@ -37,9 +37,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="GE6-a5-mkD"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,7 +44,13 @@
                             <outlet property="delegate" destination="F3c-48-emr" id="qJd-g7-btB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZnS-bl-OjD"/>
+                    <navigationItem key="navigationItem" id="ZnS-bl-OjD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fn6-c8-3LE">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="VX4-gl-PW3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cum-BL-TX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,7 +113,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="goQ-ge-wFf">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="goQ-ge-wFf">
                                 <rect key="frame" x="30" y="40" width="540" height="229"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K3t-aF-kXp">
