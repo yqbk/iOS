@@ -72,9 +72,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let locationArea = MKCoordinateRegion(center: currentPosition!, span: MKCoordinateSpan(latitudeDelta: spanDelta, longitudeDelta: spanDelta))
                 
-                map.setRegion(locationArea, animated: true)
+        map.setRegion(locationArea, animated: true)
+                
+        let pin = MKPointAnnotation()
+        pin.coordinate = currentPosition!
         
-        print(currentPosition)
+        map.addAnnotation(pin)
+            
+//        print(currentPosition)
     }
 
 
