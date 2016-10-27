@@ -8,16 +8,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+// oddac te 2 importy
+import MapKit
+import CoreLocation
 
+//dziedziczyc po klasie cll location manager
+class ViewController: UIViewController, CLLocationManagerDelegate {
+
+
+    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var start: UIButton!
+    @IBOutlet weak var stop: UIButton!
+    @IBOutlet weak var clear: UIButton!
+    
+    @IBAction func onStart(sender: AnyObject) {
+    }
+    @IBAction func onStop(sender: AnyObject) {
+    }
+    @IBAction func onClear(sender: AnyObject) {
+    }
+    
+    var myLocationManager: CLLocationManager!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            myLocationManager = CLLocationManager()
+            myLocationManager.delegate = self
+            myLocationManager.requestWhenInUseAuthorization()
+            myLocationManager.startUpdatingLocation()
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // do ustawienia
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentPosition = locations.last?.coordinate
+        
+        print(currentPosition)
     }
 
 
