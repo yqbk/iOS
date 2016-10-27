@@ -11,14 +11,14 @@ import Foundation
 class AlbumSingleton {
     
     
-    private let sharingInstance = AlbumSingleton()
+    static let sharingInstance = AlbumSingleton()
     private init() {}
     
-    var Albums= [Album]
+    var Albums = [Album]()
 }
 
 class Album{
-    
+    var title: String = ""
     
     
     
