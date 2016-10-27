@@ -9,18 +9,22 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
+    
+    let album = ""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        textfieldTitle.text = album
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    
+    @IBAction func changedFieldValue(sender: AnyObject)
+    {
+        //save.enabled = true
+    }
 
     /*
     // MARK: - Navigation

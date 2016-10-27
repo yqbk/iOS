@@ -15,7 +15,8 @@ class MyTableViewController: UITableViewController {
     var albums: NSMutableArray = []
     var albumsDocPath: String = ""
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
@@ -31,6 +32,8 @@ class MyTableViewController: UITableViewController {
         }
         
         albums = NSMutableArray(contentsOfFile: albumsDocPath)!
+        
+//        albums = AlbumSingleton.sharedInstance.Albums
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,12 +42,6 @@ class MyTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -68,14 +65,25 @@ class MyTableViewController: UITableViewController {
     
 
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let albumForm = segue.destinationViewController as? ViewController
+        {
+            if let cell = sender as? UITableViewCell
+            {
+                if let index = tableView.indexPathForCell(cell)
+                {
+                    albumForm.album = albums[index.row] as! NSDictionary
+//                    albumForm.album = albums[index.row]
+                }
+                
+                
+            }
+            
+            
+        }
     }
-    */
+    
 
 }
