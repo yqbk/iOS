@@ -22,6 +22,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var clear: UIButton!
     
     @IBAction func onStart(sender: AnyObject) {
+        
+        myLocationManager.startUpdatingLocation()
+    
     }
     @IBAction func onStop(sender: AnyObject) {
     }
@@ -44,14 +47,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // do ustawienia
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentPosition = locations.last?.coordinate
+                
+        let spanDelta = 0.0
+        
+        let locationArea = MKCoordinateRegion(center: currentPosition!, span: MKCoordinateSpan(latitudeDelta: spanDelta, longitudeDelta: spanDelta))
+                
+                map.setRegion(locationArea, animated: true)
         
         print(currentPosition)
     }
