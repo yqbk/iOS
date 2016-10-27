@@ -29,8 +29,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         map.showsUserLocation = true
     
     }
+    
     @IBAction func onStop(sender: AnyObject) {
+        stop.enabled = false
+        start.enabled = true
+        myLocationManager.stopUpdatingLocation()
+        map.showsUserLocation = false
     }
+    
     @IBAction func onClear(sender: AnyObject) {
     }
     
@@ -56,7 +62,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentPosition = locations.last?.coordinate
                 
-        let spanDelta = 0.0
+        var spanDelta = 0.0
+                
+        // Pierwszy warunek - sprawdz czy zmienna istnieje. potem - sprawdzamy czy wieksze od zera zeby dzielic
+        if let speed = locations.last?.speed where speed > 0
+        {
+            spanDelta = speed / 5000
+        }
         
         let locationArea = MKCoordinateRegion(center: currentPosition!, span: MKCoordinateSpan(latitudeDelta: spanDelta, longitudeDelta: spanDelta))
                 
