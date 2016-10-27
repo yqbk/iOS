@@ -54,7 +54,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             myLocationManager = CLLocationManager()
             myLocationManager.delegate = self
             myLocationManager.requestWhenInUseAuthorization()
-            myLocationManager.startUpdatingLocation()
         }
         
         //hybrid view
