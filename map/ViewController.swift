@@ -24,6 +24,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func onStart(sender: AnyObject) {
         
         myLocationManager.startUpdatingLocation()
+        start.enabled = false
+        stop.enabled = true
+        map.showsUserLocation = true
     
     }
     @IBAction func onStop(sender: AnyObject) {
@@ -36,6 +39,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        stop.enabled = false;
 
         if (CLLocationManager.locationServicesEnabled())
         {
