@@ -38,6 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func onClear(sender: AnyObject) {
+        map.removeAnnotations(map.annotations)
     }
     
     var myLocationManager: CLLocationManager!
@@ -55,6 +56,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             myLocationManager.requestWhenInUseAuthorization()
             myLocationManager.startUpdatingLocation()
         }
+        
+        //hybrid view
+        map.mapType = .HybridFlyover
     
     }
 
