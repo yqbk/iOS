@@ -10,7 +10,6 @@ import UIKit
 
 class MyTableViewController: UITableViewController {
     
-    
     var index = 0
     var albums: NSMutableArray = []
     var albumsDocPath: String = ""
@@ -33,13 +32,8 @@ class MyTableViewController: UITableViewController {
         
         albums = NSMutableArray(contentsOfFile: albumsDocPath)!
         
-//        albums = AlbumSingleton.sharedInstance.Albums
+//        albumList = AlbumSingleton.sharedInstance.Albums
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
 
@@ -68,14 +62,14 @@ class MyTableViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if let albumForm = segue.destinationViewController as? ViewController
+        if let albumForm = segue.destinationViewController as? AlbumViewController
         {
             if let cell = sender as? UITableViewCell
             {
                 if let index = tableView.indexPathForCell(cell)
                 {
-                    albumForm.album = albums[index.row] as! NSDictionary
-//                    albumForm.album = albums[index.row]
+                    print(index)
+//                    albumForm.album = albums[index.row] as! NSDictionary
                 }
                 
                 

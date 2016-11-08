@@ -17,9 +17,26 @@ class AlbumSingleton {
     var Albums = [Album]()
 }
 
-class Album{
-    var title: String = ""
+class Album
+{
+    var title: String = "";
+    var artist: String =  "";
+    var genre: String = "";
+    var year: Int = 0
+    var rating: Int = 0
+}
+
+func addAlbum()
+{
     
+}
+
+func changeAlbum()
+{
     
+}
+
+func deleteAlbum()
+{
     
 }
