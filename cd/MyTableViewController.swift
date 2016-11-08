@@ -66,10 +66,10 @@ class MyTableViewController: UITableViewController {
         {
             if let cell = sender as? UITableViewCell
             {
-                if let index = tableView.indexPathForCell(cell)
+                if let index2 = tableView.indexPathForCell(cell)
                 {
-                    print(index)
-//                    albumForm.album = albums[index.row] as! NSDictionary
+                    print(index2)
+                    albumForm.album = albums[index2.row] as! NSDictionary
                 }
                 
                 
