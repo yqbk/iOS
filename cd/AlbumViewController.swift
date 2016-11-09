@@ -16,14 +16,7 @@ class AlbumViewController: UIViewController {
     var length: Int?
     var index: Int?
     var isNew: Bool = false
-    
-//    var emptyAlbum: NSDictionary = [
-//        "artist": "",
-//        "title": "",
-//        "date": "",
-//        "genre": "",
-//        "rating": 0]
-//    
+
     
     @IBOutlet weak var artist: UITextField!
     @IBOutlet weak var albumTitle: UITextField!
@@ -119,8 +112,7 @@ class AlbumViewController: UIViewController {
             year.text = album?.valueForKey("date")?.stringValue
             ratingNr.text = album?.valueForKey("rating")?.stringValue
             
-            steper.value = 2
-//            steper.value = (album?.valueForKey("rating") as? Double)!
+            steper.value = (album?.valueForKey("rating") as? Double)!
             state.text = album?.valueForKey("artist") as? String
             
         }

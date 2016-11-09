@@ -17,7 +17,7 @@ class MyTableViewController: UITableViewController {
         [
             "artist": "",
             "title": "",
-            "date": 0,
+            "date": "",
             "genre": "",
             "rating": 0
         ])
@@ -73,7 +73,6 @@ class MyTableViewController: UITableViewController {
             }
             else
             {
-                print("plus")
                 albumForm.album = emptyAlbum
                 albumForm.isNew = true
                 albumForm.length = (albums?.count)! + 1
