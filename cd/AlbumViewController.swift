@@ -8,7 +8,16 @@
 
 import UIKit
 
+// todo
+import Foundation
+
 class AlbumViewController: UIViewController {
+
+    // todo
+    var albums = AlbumsSingleton.sharedInstance.albums
+    var album: NSDictionary?
+    var albumsCount: Int?
+    var index: Int?
     
     var album: NSDictionary = [
         "artist": "",
@@ -16,9 +25,12 @@ class AlbumViewController: UIViewController {
         "date": "",
         "genre": "",
         "rating": 0]
-    
-    var albums: NSMutableArray = []
+
+
     var albumsDocPath: String = ""
+
+    // potrzebne?
+    var albums: NSMutableArray = []
     var index = 0
     
     
@@ -30,10 +42,17 @@ class AlbumViewController: UIViewController {
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+
+    // delete
     @IBOutlet weak var newButton: UIButton!
+    @IBOutlet weak var cancel: UIButton!
     
     @IBOutlet weak var steper: UIStepper!
     @IBOutlet weak var state: UILabel!
+
+    // co to jest????
+    @IBOutlet var currentPage: UILabel!
+    @IBOutlet var allPage: UILabel!
 
     
 
@@ -147,5 +166,11 @@ class AlbumViewController: UIViewController {
         genre.text = "";
         ratingNr.text = "0";
     }
+
+
+    // --------------------------------------------------
+
+
+
 
 }

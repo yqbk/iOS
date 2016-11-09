@@ -9,6 +9,8 @@
 import Foundation
 
 class AlbumSingleton {
+
+// todo DELETE ADDITIONAL VIew
     
     
     static let sharingInstance = AlbumSingleton()
