@@ -89,16 +89,17 @@ class AlbumViewController: UIViewController {
     {
         
         //  Get values from plist
-//        artist.text = albums[index].valueForKey("artist") as? String
-//        genre.text = albums[index].valueForKey("genre") as? String
-//        albumTitle.text = albums[index].valueForKey("title") as? String
-//        year.text = albums[index].valueForKey("date")?.stringValue
-//        ratingNr.text = albums[index].valueForKey("rating")?.stringValue
-//        
-//        steper.value = (albums[index].valueForKey("rating")?.doubleValue)!
-//        
-//        state.text = albums[index].valueForKey("artist") as? String
-//        
+        artist.text = album?.valueForKey("artist") as? String
+        albumTitle.text = album?.valueForKey("title") as? String
+        genre.text = album?.valueForKey("genre") as? String
+        year.text = album?.valueForKey("date")?.stringValue
+        ratingNr.text = album?.valueForKey("rating")?.stringValue
+
+        
+        steper.value = (album?.valueForKey("rating")?.doubleValue)!
+        
+        state.text = album?.valueForKey("artist") as? String
+
         deleteButton.enabled = true;
         newButton.enabled = true;
         saveButton.enabled = false;
@@ -107,8 +108,6 @@ class AlbumViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-                
         
         self.steper.maximumValue = 5;
         self.steper.minimumValue = 1;
@@ -127,11 +126,5 @@ class AlbumViewController: UIViewController {
         genre.text = "";
         ratingNr.text = "0";
     }
-
-
-    // --------------------------------------------------
-
-
-
 
 }

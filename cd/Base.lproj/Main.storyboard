@@ -169,25 +169,31 @@
                                     <constraint firstItem="Sym-u2-Gxh" firstAttribute="width" secondItem="XMp-zo-hJa" secondAttribute="width" id="Yuz-Jm-IDS"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-mP-qlb">
-                                <rect key="frame" x="278" y="341" width="45" height="130"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-CK-ydn">
+                                <rect key="frame" x="279" y="569" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-mP-qlb">
+                                <rect key="frame" x="264" y="401" width="45" height="137"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsu-iS-jCH">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsu-iS-jCH">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="32"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="R7H-ZQ-6XX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-Hl-zu8">
-                                        <rect key="frame" x="0.0" y="50" width="45" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-Hl-zu8">
+                                        <rect key="frame" x="0.0" y="52" width="45" height="33"/>
                                         <state key="normal" title="Delete"/>
                                         <connections>
                                             <action selector="deleteRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="iQp-wX-prg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-1D-9dB">
-                                        <rect key="frame" x="0.0" y="100" width="45" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-1D-9dB">
+                                        <rect key="frame" x="0.0" y="105" width="45" height="32"/>
                                         <state key="normal" title="New"/>
                                         <connections>
                                             <action selector="newRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="wRn-bK-16Q"/>
@@ -195,17 +201,15 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-CK-ydn">
-                                <rect key="frame" x="279" y="494" width="42" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="goQ-ge-wFf" firstAttribute="leading" secondItem="AaG-HA-8Fj" secondAttribute="leadingMargin" constant="20" id="6LZ-ef-Wm7"/>
+                            <constraint firstItem="AHr-mP-qlb" firstAttribute="centerX" secondItem="AaG-HA-8Fj" secondAttribute="centerX" id="6ks-j0-aTh"/>
+                            <constraint firstItem="lya-xC-BpP" firstAttribute="top" secondItem="AHr-mP-qlb" secondAttribute="bottom" constant="50" id="MfV-0k-lUI"/>
+                            <constraint firstItem="LL3-CK-ydn" firstAttribute="centerX" secondItem="AaG-HA-8Fj" secondAttribute="centerX" id="l3p-Yy-eAs"/>
                             <constraint firstItem="AHr-mP-qlb" firstAttribute="top" secondItem="goQ-ge-wFf" secondAttribute="bottom" constant="100" id="nSL-Bf-dbB"/>
+                            <constraint firstItem="lya-xC-BpP" firstAttribute="top" secondItem="LL3-CK-ydn" secondAttribute="bottom" constant="10" id="s6p-1d-ENX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="goQ-ge-wFf" secondAttribute="trailing" constant="20" id="tuG-Ip-KdY"/>
                             <constraint firstItem="goQ-ge-wFf" firstAttribute="top" secondItem="DtQ-PI-W6L" secondAttribute="bottom" constant="20" id="yFC-qs-Vdc"/>
                         </constraints>
