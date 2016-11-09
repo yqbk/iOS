@@ -106,10 +106,10 @@
 			children = (
 				ACE923941DAE6D64000125BC /* AppDelegate.swift */,
 				ACE923981DAE6D64000125BC /* Main.storyboard */,
-				AC3BA2C81DC1FEFD006697B6 /* MyTableViewController.swift */,
 				ACE9239B1DAE6D64000125BC /* Assets.xcassets */,
 				ACE9239D1DAE6D64000125BC /* LaunchScreen.storyboard */,
 				ACE923A01DAE6D64000125BC /* Info.plist */,
+				AC3BA2C81DC1FEFD006697B6 /* MyTableViewController.swift */,
 				AC3BA2CA1DC2053B006697B6 /* AlbumViewController.swift */,
 				AC3BA2CC1DC20B96006697B6 /* Albums.swift */,
 			);

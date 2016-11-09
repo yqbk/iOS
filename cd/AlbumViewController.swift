@@ -8,24 +8,22 @@
 
 import UIKit
 
-// todo
-import Foundation
 
 class AlbumViewController: UIViewController {
 
-    // todo
     var albums = Albums.share.albums
     var album: NSDictionary?
-    var count: Int?
+    var length: Int?
     var index: Int?
+    var isNew: Bool = false
     
-    var emptyAlbum: NSDictionary = [
-        "artist": "",
-        "title": "",
-        "date": "",
-        "genre": "",
-        "rating": 0]
-    
+//    var emptyAlbum: NSDictionary = [
+//        "artist": "",
+//        "title": "",
+//        "date": "",
+//        "genre": "",
+//        "rating": 0]
+//    
     
     @IBOutlet weak var artist: UITextField!
     @IBOutlet weak var albumTitle: UITextField!
@@ -36,73 +34,74 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
 
-    // delete
-    @IBOutlet weak var newButton: UIButton!
-//    @IBOutlet weak var cancel: UIButton!
+    
+    @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var steper: UIStepper!
     @IBOutlet weak var state: UILabel!
-
-    // co to jest????
-//    @IBOutlet var currentPage: UILabel!
-//    @IBOutlet var allPage: UILabel!
-
+    
+    
+    @IBAction func changeRating(sender: UIStepper) {
+        
+        let val = sender.value;
+        saveButton.enabled = true;
+        ratingNr.text = String(val);
+    }
+    
+    
+    
+    
     
     @IBAction func saveRecord(sender: UIButton)
     {
+        let newDictionary = NSDictionary(dictionary:
+            [
+                "artist": artist.text!,
+                "title": albumTitle.text!,
+                "date": Int(year.text!)!,
+                "genre": genre.text!,
+                "rating": Double(ratingNr.text!)!
+            ])
+     
+        print(isNew)
+        
+        if (isNew == false)
+        {
+            Albums.share.saveAlbums(index!, album: newDictionary)
+        }
+        else
+        {
+            Albums.share.addAlbum(newDictionary)
+        }
+        
+        isNew = false
+        navigationController?.popViewControllerAnimated(true)
         
     }
 
 
-    @IBAction func editedAlbum(sender: AnyObject) {
-        
+    @IBAction func editedText(sender: AnyObject) {
         saveButton.enabled = true;
-
     }
-    
 
     
     
-    @IBAction func deleteRecord(sender: AnyObject) {
-        
-        
-//        albums.removeObjectAtIndex(index);
-//        
-//        index = 0;
-//        refreshViewOnChange()
-    }
-    
-    
-    @IBAction func newRecord(sender: AnyObject) {
-        
-//        clearFields();
-//        
-//        index = albums.count;
-//        
-//        deleteButton.enabled = false;
-//        newButton.enabled = false;
-//        saveButton.enabled = true;
-    }
-  
-    
-    func refreshViewOnChange()
+    @IBAction func deleteRecord(sender: AnyObject)
     {
-        
-        //  Get values from plist
-        artist.text = album?.valueForKey("artist") as? String
-        albumTitle.text = album?.valueForKey("title") as? String
-        genre.text = album?.valueForKey("genre") as? String
-        year.text = album?.valueForKey("date")?.stringValue
-        ratingNr.text = album?.valueForKey("rating")?.stringValue
+        Albums.share.deleteAlbum(index!)
+        index = 0;
+        animatedGoBack()
+    }
+    
 
-        
-        steper.value = (album?.valueForKey("rating")?.doubleValue)!
-        
-        state.text = album?.valueForKey("artist") as? String
-
-        deleteButton.enabled = true;
-        newButton.enabled = true;
-        saveButton.enabled = false;
+    @IBAction func goBack(sender: UIButton)
+    {
+            animatedGoBack()
+    }
+    
+    func animatedGoBack()
+    {
+        navigationController?.popViewControllerAnimated(true)
     }
 
 
@@ -112,19 +111,39 @@ class AlbumViewController: UIViewController {
         self.steper.maximumValue = 5;
         self.steper.minimumValue = 1;
         
+        if (isNew == false)
+        {
+            artist.text = album?.valueForKey("artist") as? String
+            albumTitle.text = album?.valueForKey("title") as? String
+            genre.text = album?.valueForKey("genre") as? String
+            year.text = album?.valueForKey("date")?.stringValue
+            ratingNr.text = album?.valueForKey("rating")?.stringValue
+            
+            steper.value = 2
+//            steper.value = (album?.valueForKey("rating") as? Double)!
+            state.text = album?.valueForKey("artist") as? String
+            
+        }
+        else
+        {
+            artist.text = album?.valueForKey("artist") as? String
+            albumTitle.text = album?.valueForKey("title") as? String
+            genre.text = album?.valueForKey("genre") as? String
+            year.text = album?.valueForKey("date")?.stringValue
+            ratingNr.text = album?.valueForKey("rating")?.stringValue
+            
+            
+            steper.value = 0
+            
+            state.text = "new"
+        }
         
-        refreshViewOnChange()
+        deleteButton.enabled = true;
+        cancelButton.enabled = true;
+        saveButton.enabled = false;
+ 
     }
 
     
-    
-    func clearFields()
-    {
-        artist.text = "";
-        albumTitle.text = "";
-        year.text = "";
-        genre.text = "";
-        ratingNr.text = "0";
-    }
 
 }

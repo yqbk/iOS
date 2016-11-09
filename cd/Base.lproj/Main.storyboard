@@ -88,7 +88,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="editedAlbum:" destination="Dwv-C9-NBa" eventType="editingDidEnd" id="raV-vk-OxA"/>
+                                                    <action selector="editedText:" destination="Dwv-C9-NBa" eventType="editingChanged" id="2W1-xh-Hn1"/>
+                                                    <action selector="editedText:" destination="Dwv-C9-NBa" eventType="editingDidEnd" id="d41-2u-sC2"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -158,6 +159,9 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sdc-hf-uPh">
                                                 <rect key="frame" x="426" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="changeRating:" destination="Dwv-C9-NBa" eventType="valueChanged" id="UoV-M7-7MT"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
@@ -176,27 +180,27 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-mP-qlb">
-                                <rect key="frame" x="264" y="401" width="45" height="137"/>
+                                <rect key="frame" x="264" y="401" width="48" height="137"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsu-iS-jCH">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nsu-iS-jCH">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="32"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="R7H-ZQ-6XX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-Hl-zu8">
-                                        <rect key="frame" x="0.0" y="52" width="45" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-Hl-zu8">
+                                        <rect key="frame" x="0.0" y="52" width="48" height="33"/>
                                         <state key="normal" title="Delete"/>
                                         <connections>
                                             <action selector="deleteRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="iQp-wX-prg"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-1D-9dB">
-                                        <rect key="frame" x="0.0" y="105" width="45" height="32"/>
-                                        <state key="normal" title="New"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9a-1D-9dB">
+                                        <rect key="frame" x="0.0" y="105" width="48" height="32"/>
+                                        <state key="normal" title="Cancel"/>
                                         <connections>
-                                            <action selector="newRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="wRn-bK-16Q"/>
+                                            <action selector="goBack:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="0cI-Jn-mBH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -217,9 +221,9 @@
                     <connections>
                         <outlet property="albumTitle" destination="j94-g7-1Dn" id="DKi-96-anS"/>
                         <outlet property="artist" destination="9D7-8z-6H0" id="7nT-BJ-1Bp"/>
+                        <outlet property="cancelButton" destination="J9a-1D-9dB" id="gap-Vk-TwY"/>
                         <outlet property="deleteButton" destination="xSS-Hl-zu8" id="Laz-PO-bmi"/>
                         <outlet property="genre" destination="uOW-V0-DxW" id="cUM-Sn-cl4"/>
-                        <outlet property="newButton" destination="J9a-1D-9dB" id="dvZ-MY-xZD"/>
                         <outlet property="ratingNr" destination="UkS-nF-Fcp" id="Abq-bb-hm1"/>
                         <outlet property="saveButton" destination="Nsu-iS-jCH" id="mKz-tv-zOQ"/>
                         <outlet property="state" destination="LL3-CK-ydn" id="825-3t-9dE"/>

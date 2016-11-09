@@ -17,6 +17,7 @@ class Albums {
     
     var albums: NSMutableArray?
     var albumsDocPath: String = ""
+    var lenght: Int = 0
     
     private init()
     {
@@ -33,12 +34,19 @@ class Albums {
         }
         
         albums = NSMutableArray(contentsOfFile: albumsDocPath)!
+        lenght = (albums?.count)!
     
     }
     
-    func saveAlbums()
+    func saveAlbums(index: Int, album: NSDictionary)
     {
+        albums![index] = album
         albums!.writeToFile(albumsDocPath, atomically: true)
+    }
+    
+    func addAlbum(newAlbum: NSDictionary)
+    {
+        albums?.addObject(newAlbum)
     }
     
     
@@ -47,9 +55,9 @@ class Albums {
         
     }
     
-    func deleteAlbum()
+    func deleteAlbum(index:Int)
     {
-        
+        albums?.removeObjectAtIndex(index)
     }
     
     func saveData()

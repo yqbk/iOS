@@ -11,7 +11,16 @@ import UIKit
 class MyTableViewController: UITableViewController {
 
     var albums = Albums.share.albums
-
+    
+    
+    let emptyAlbum = NSDictionary(dictionary:
+        [
+            "artist": "",
+            "title": "",
+            "date": 0,
+            "genre": "",
+            "rating": 0
+        ])
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -36,7 +45,6 @@ class MyTableViewController: UITableViewController {
         return cell
     }
 
-    //zapomniałem wczesniej?
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
     }
@@ -45,19 +53,6 @@ class MyTableViewController: UITableViewController {
     {
         super.viewDidLoad()
     }
-
-    //todo
-    func newAlbum () -> NSDictionary {
-        let album:NSDictionary = [
-            "artist": "",
-            "title": "",
-            "genre": "",
-            "date": 2016,
-            "rating": 0
-        ]
-        return album
-    }
-
 
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -68,19 +63,23 @@ class MyTableViewController: UITableViewController {
             {
                 if let index = tableView.indexPathForCell(cell)
                 {
+                    albumForm.albums = albums
                     albumForm.album = albums![index.row] as? NSDictionary
-//                    albumForm.albumsCount = albums!.count
+                    albumForm.length = albums!.count
                     albumForm.index = index.row
+                    albumForm.isNew = false
                 }
-                else
-                {
-                    // dziala?
-//                    albumForm.album = emptyForm()
-//                    albumForm.albumsCount = albums.count + 1
-//                    albumForm.index = albums.count
-                }
-
+                
             }
+            else
+            {
+                print("plus")
+                albumForm.album = emptyAlbum
+                albumForm.isNew = true
+                albumForm.length = (albums?.count)! + 1
+                albumForm.index = albums!.count
+            }
+
 
         }
     }
