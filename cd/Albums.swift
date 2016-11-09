@@ -8,12 +8,12 @@
 
 import Foundation
 
-class AlbumSingleton {
+class Albums {
 
 // todo DELETE ADDITIONAL VIew
     
     
-    static let share = AlbumSingleton()
+    static let share = Albums()
     
     var albums: NSMutableArray?
     var albumsDocPath: String = ""

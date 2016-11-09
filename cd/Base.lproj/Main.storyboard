@@ -88,7 +88,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="changedFieldValue:" destination="Dwv-C9-NBa" eventType="editingChanged" id="Unq-3y-5CY"/>
+                                                    <action selector="editedAlbum:" destination="Dwv-C9-NBa" eventType="editingDidEnd" id="raV-vk-OxA"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -176,8 +176,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
-                                            <action selector="saveButton:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="bBy-Fb-Pec"/>
-                                            <action selector="saveRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="WPg-Gq-0R2"/>
+                                            <action selector="saveRecord:" destination="Dwv-C9-NBa" eventType="touchUpInside" id="R7H-ZQ-6XX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSS-Hl-zu8">
@@ -218,11 +217,9 @@
                         <outlet property="genre" destination="uOW-V0-DxW" id="cUM-Sn-cl4"/>
                         <outlet property="newButton" destination="J9a-1D-9dB" id="dvZ-MY-xZD"/>
                         <outlet property="ratingNr" destination="UkS-nF-Fcp" id="Abq-bb-hm1"/>
-                        <outlet property="saveButton" destination="Nsu-iS-jCH" id="auW-Qk-771"/>
-                        <outlet property="saveRecord" destination="Nsu-iS-jCH" id="hAl-b2-4sL"/>
+                        <outlet property="saveButton" destination="Nsu-iS-jCH" id="mKz-tv-zOQ"/>
                         <outlet property="state" destination="LL3-CK-ydn" id="825-3t-9dE"/>
                         <outlet property="steper" destination="sdc-hf-uPh" id="Q8l-aB-fgj"/>
-                        <outlet property="title" destination="j94-g7-1Dn" id="suC-dt-2Hf"/>
                         <outlet property="year" destination="WkP-Vj-BeU" id="7en-Or-mMD"/>
                     </connections>
                 </viewController>

@@ -14,24 +14,17 @@ import Foundation
 class AlbumViewController: UIViewController {
 
     // todo
-    var albums = AlbumsSingleton.sharedInstance.albums
+    var albums = Albums.share.albums
     var album: NSDictionary?
-    var albumsCount: Int?
+    var count: Int?
     var index: Int?
     
-    var album: NSDictionary = [
+    var emptyAlbum: NSDictionary = [
         "artist": "",
         "title": "",
         "date": "",
         "genre": "",
         "rating": 0]
-
-
-    var albumsDocPath: String = ""
-
-    // potrzebne?
-    var albums: NSMutableArray = []
-    var index = 0
     
     
     @IBOutlet weak var artist: UITextField!
@@ -45,44 +38,29 @@ class AlbumViewController: UIViewController {
 
     // delete
     @IBOutlet weak var newButton: UIButton!
-    @IBOutlet weak var cancel: UIButton!
+//    @IBOutlet weak var cancel: UIButton!
     
     @IBOutlet weak var steper: UIStepper!
     @IBOutlet weak var state: UILabel!
 
     // co to jest????
-    @IBOutlet var currentPage: UILabel!
-    @IBOutlet var allPage: UILabel!
+//    @IBOutlet var currentPage: UILabel!
+//    @IBOutlet var allPage: UILabel!
 
     
-
-    
-    @IBAction func saveRecord(sender: UIButton) {
-        
-//        let newDictionary = NSDictionary(dictionary:
-//            ["artist": artist.text!,
-//                "title": albumTitle.text!,
-//                "date": Int(year.text!)!,
-//                "genre": genre.text!,
-//                "rating": Double(ratingNr.text!)!])
-//        
-//        print(state.text);
-//        
-//        if (state.text == "New record")
-//        {
-//            albums.addObject(newDictionary)
-//            index = albums.count - 1;
-//        }
-//        else
-//        {
-//            albums[index] = newDictionary;
-//        }
-//        
-//        albums.writeToFile(albumsDocPath, atomically: true)
-//        refreshViewOnChange()
+    @IBAction func saveRecord(sender: UIButton)
+    {
         
     }
+
+
+    @IBAction func editedAlbum(sender: AnyObject) {
+        
+        saveButton.enabled = true;
+
+    }
     
+
     
     
     @IBAction func deleteRecord(sender: AnyObject) {
@@ -111,16 +89,16 @@ class AlbumViewController: UIViewController {
     {
         
         //  Get values from plist
-        artist.text = albums[index].valueForKey("artist") as? String
-        genre.text = albums[index].valueForKey("genre") as? String
-        albumTitle.text = albums[index].valueForKey("title") as? String
-        year.text = albums[index].valueForKey("date")?.stringValue
-        ratingNr.text = albums[index].valueForKey("rating")?.stringValue
-        
-        steper.value = (albums[index].valueForKey("rating")?.doubleValue)!
-        
-        state.text = albums[index].valueForKey("artist") as? String
-        
+//        artist.text = albums[index].valueForKey("artist") as? String
+//        genre.text = albums[index].valueForKey("genre") as? String
+//        albumTitle.text = albums[index].valueForKey("title") as? String
+//        year.text = albums[index].valueForKey("date")?.stringValue
+//        ratingNr.text = albums[index].valueForKey("rating")?.stringValue
+//        
+//        steper.value = (albums[index].valueForKey("rating")?.doubleValue)!
+//        
+//        state.text = albums[index].valueForKey("artist") as? String
+//        
         deleteButton.enabled = true;
         newButton.enabled = true;
         saveButton.enabled = false;
@@ -141,11 +119,6 @@ class AlbumViewController: UIViewController {
 
     
     
-    @IBAction func changedFieldValue(sender: AnyObject)
-    {
-        saveButton.enabled = true;
-    }
-
     func clearFields()
     {
         artist.text = "";
