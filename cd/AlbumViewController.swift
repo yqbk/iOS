@@ -130,19 +130,7 @@ class AlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-                let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
-                let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-                albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
-                let fileManager = NSFileManager.defaultManager()
-        
-        
-                if !fileManager.fileExistsAtPath(albumsDocPath)
-                {
-        //            bez wykrzyknika???
-                    try? fileManager.copyItemAtPath(plistPath, toPath: albumsDocPath)
-                }
                 
-                albums = NSMutableArray(contentsOfFile: albumsDocPath)!
         
         self.steper.maximumValue = 5;
         self.steper.minimumValue = 1;

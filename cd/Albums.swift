@@ -13,32 +13,59 @@ class AlbumSingleton {
 // todo DELETE ADDITIONAL VIew
     
     
-    static let sharingInstance = AlbumSingleton()
-    private init() {}
+    static let share = AlbumSingleton()
     
-    var Albums = [Album]()
+    var albums: NSMutableArray?
+    var albumsDocPath: String = ""
+    
+    private init()
+    {
+        let plistPath = NSBundle.mainBundle().pathForResource("albums", ofType: "plist")!
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        albumsDocPath = documentsPath.stringByAppendingString("/albums.plist")
+        let fileManager = NSFileManager.defaultManager()
+        
+        
+        if !fileManager.fileExistsAtPath(albumsDocPath)
+        {
+            //            bez wykrzyknika???
+            try? fileManager.copyItemAtPath(plistPath, toPath: albumsDocPath)
+        }
+        
+        albums = NSMutableArray(contentsOfFile: albumsDocPath)!
+    
+    }
+    
+    func saveAlbums()
+    {
+        albums!.writeToFile(albumsDocPath, atomically: true)
+    }
+    
+    
+    func changeAlbum()
+    {
+        
+    }
+    
+    func deleteAlbum()
+    {
+        
+    }
+    
+    func saveData()
+    {
+        
+    }
+    
+//    var Albums = [Album]()
 }
 
-class Album
-{
-    var title: String = "";
-    var artist: String =  "";
-    var genre: String = "";
-    var year: Int = 0
-    var rating: Int = 0
-}
+//class Album
+//{
+//    var title: String = "";
+//    var artist: String =  "";
+//    var genre: String = "";
+//    var year: Int = 0
+//    var rating: Int = 0
+//}
 
-func addAlbum()
-{
-    
-}
-
-func changeAlbum()
-{
-    
-}
-
-func deleteAlbum()
-{
-    
-}
