@@ -9,9 +9,6 @@
 import Foundation
 
 class Albums {
-
-// todo DELETE ADDITIONAL VIew
-    
     
     static let share = Albums()
     
@@ -29,7 +26,6 @@ class Albums {
         
         if !fileManager.fileExistsAtPath(albumsDocPath)
         {
-            //            bez wykrzyknika???
             try? fileManager.copyItemAtPath(plistPath, toPath: albumsDocPath)
         }
         
