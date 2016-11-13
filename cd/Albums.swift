@@ -49,31 +49,8 @@ class Albums {
         albums?.addObject(newAlbum)
     }
     
-    
-    func changeAlbum()
-    {
-        
-    }
-    
     func deleteAlbum(index:Int)
     {
         albums?.removeObjectAtIndex(index)
-    }
-    
-    func saveData()
-    {
-        
-    }
-    
-//    var Albums = [Album]()
+    } 
 }
-
-//class Album
-//{
-//    var title: String = "";
-//    var artist: String =  "";
-//    var genre: String = "";
-//    var year: Int = 0
-//    var rating: Int = 0
-//}
-
