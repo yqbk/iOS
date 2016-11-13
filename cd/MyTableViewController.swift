@@ -10,8 +10,7 @@ import UIKit
 
 class MyTableViewController: UITableViewController {
 
-    var albums = Albums.share.albums
-    
+    var albums = Albums.share.albums    
     
     let emptyAlbum = NSDictionary(dictionary:
         [
@@ -30,17 +29,12 @@ class MyTableViewController: UITableViewController {
         return albums!.count
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-
-    //tutaj?
         let cell = tableView.dequeueReusableCellWithIdentifier("AlbumCell", forIndexPath: indexPath)
 
-        //albms z ? czy !
         cell.textLabel!.text = albums![indexPath.row]["artist"] as? String
         cell.detailTextLabel!.text = albums![indexPath.row]["title"] as? String
-
 
         return cell
     }
@@ -63,10 +57,7 @@ class MyTableViewController: UITableViewController {
             {
                 if let index = tableView.indexPathForCell(cell)
                 {
-                    albumForm.albums = albums
                     albumForm.album = albums![index.row] as? NSDictionary
-                    albumForm.length = albums!.count
-                    albumForm.index = index.row
                     albumForm.isNew = false
                 }
                 
@@ -75,11 +66,7 @@ class MyTableViewController: UITableViewController {
             {
                 albumForm.album = emptyAlbum
                 albumForm.isNew = true
-                albumForm.length = (albums?.count)! + 1
-                albumForm.index = albums!.count
             }
-
-
         }
     }
 }
