@@ -13,10 +13,7 @@ class AlbumViewController: UIViewController {
 
     var albums = Albums.share.albums
     var album: NSDictionary?
-    var length: Int?
-    var index: Int?
     var isNew: Bool = false
-
     
     @IBOutlet weak var artist: UITextField!
     @IBOutlet weak var albumTitle: UITextField!
@@ -34,16 +31,12 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var state: UILabel!
     
     
-    @IBAction func changeRating(sender: UIStepper) {
-        
+    @IBAction func changeRating(sender: UIStepper) 
+    {        
         let val = sender.value;
         saveButton.enabled = true;
         ratingNr.text = String(val);
     }
-    
-    
-    
-    
     
     @IBAction func saveRecord(sender: UIButton)
     {
@@ -55,8 +48,6 @@ class AlbumViewController: UIViewController {
                 "genre": genre.text!,
                 "rating": Double(ratingNr.text!)!
             ])
-     
-        print(isNew)
         
         if (isNew == false)
         {
@@ -68,35 +59,31 @@ class AlbumViewController: UIViewController {
         }
         
         isNew = false
-        navigationController?.popViewControllerAnimated(true)
-        
+        animatedGoBack()        
     }
 
 
-    @IBAction func editedText(sender: AnyObject) {
+    @IBAction func editedText(sender: AnyObject) 
+    {
         saveButton.enabled = true;
-    }
-
-    
+    }    
     
     @IBAction func deleteRecord(sender: AnyObject)
     {
         Albums.share.deleteAlbum(index!)
         index = 0;
         animatedGoBack()
-    }
-    
+    }    
 
     @IBAction func goBack(sender: UIButton)
     {
-            animatedGoBack()
+        animatedGoBack()
     }
     
     func animatedGoBack()
     {
         navigationController?.popViewControllerAnimated(true)
     }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,20 +109,14 @@ class AlbumViewController: UIViewController {
             albumTitle.text = album?.valueForKey("title") as? String
             genre.text = album?.valueForKey("genre") as? String
             year.text = album?.valueForKey("date")?.stringValue
-            ratingNr.text = album?.valueForKey("rating")?.stringValue
+            ratingNr.text = album?.valueForKey("rating")?.stringValue            
             
-            
-            steper.value = 0
-            
+            steper.value = 0            
             state.text = "new"
         }
         
         deleteButton.enabled = true;
         cancelButton.enabled = true;
-        saveButton.enabled = false;
- 
+        saveButton.enabled = false; 
     }
-
-    
-
 }
